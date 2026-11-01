@@ -64,7 +64,7 @@ export default function LetsHaveAChat({
               leading-[1.05] tracking-[-0.02em]
               text-[#8747F0]
             "
-            style={{ "--cycle": `${cycle}s` }}
+            style={{ "--cycle": `${cycle}s` } as React.CSSProperties}
           >
             {words.map((word, w) => (
               <span
