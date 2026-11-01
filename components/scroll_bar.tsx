@@ -20,7 +20,7 @@ export default function ScrollBar({ duration = 26, starDuration = 4 }) {
             style={{
               "--marquee-duration": `${duration}s`,
               "--star-duration": `${starDuration}s`,
-            }}
+            } as React.CSSProperties}
           >
             {[0, 1].map((copy) => (
               <div
