@@ -1,0 +1,44 @@
+import type { Metadata } from "next";
+import { Chatbot } from "@/components/Chatbot";
+import { ToastProvider } from "@/components/toast-provider";
+import { ThemeScript } from "@/components/theme-script";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Santhosh Murarishetty Portfolio",
+  description: "Santhosh Data Analyst portfolio ",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (typeof window !== 'undefined' && window.location.pathname !== '/') {
+                  sessionStorage.setItem('hasPlayedEntrance', 'true');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body
+        className="min-h-full flex flex-col"
+        suppressHydrationWarning
+      >
+        <ToastProvider>
+          {children}
+          <Chatbot />
+        </ToastProvider>
+      </body>
+    </html>
+  );
+}
