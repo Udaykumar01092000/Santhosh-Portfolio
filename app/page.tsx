@@ -1,7 +1,9 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+
 import { EntranceAnimation } from "@/components/EntranceAnimation";
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/sections/Hero";
@@ -11,11 +13,12 @@ import { Resume } from "@/components/sections/Resume";
 import { Skills } from "@/components/sections/Skills";
 import { Services } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
+
 import ScrollBar from "@/components/scroll_bar";
 import LetsHaveAChat from "@/components/letsHaveChat";
+import { LanyardCard } from "@/components/idCard";
+
 import "@/styles/entrance.css";
-
-
 
 export default function Home() {
   const [showEntrance, setShowEntrance] = useState(false);
@@ -23,6 +26,7 @@ export default function Home() {
 
   useEffect(() => {
     const hasPlayed = sessionStorage.getItem("hasPlayedEntrance");
+
     if (hasPlayed) {
       setShowEntrance(false);
       setPortfolioVisible(true);
@@ -44,7 +48,7 @@ export default function Home() {
         <EntranceAnimation onComplete={handleEntranceComplete} />
       )}
 
-      {/* Portfolio content — always mounted, revealed after entrance */}
+      {/* Portfolio content */}
       <motion.div
         className="min-h-screen bg-[var(--page-background)] text-[var(--foreground)]"
         initial={{ opacity: 0 }}
@@ -52,21 +56,42 @@ export default function Home() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_top,_rgba(129,76,236,0.28),_transparent_58%)]" />
+
         <SiteHeader />
+
         <main className="bg-[var(--hero-section-background)] pt-20 sm:pt-28 lg:pt-18">
+
+          {/* Hero Section */}
           <Hero />
+
+          {/* Lanyard Profile Card
+          <section className="relative flex w-full justify-center overflow-visible py-10">
+            <LanyardCard
+              name="Santhosh Murarishetty"
+              role="Data Analyst"
+              status="Available for projects"
+              photo="/profile.png"
+              ropeLength={180}
+            />
+          </section> */}
+
+          {/* Portfolio Sections */}
           <ScrollBar duration={26} starDuration={4} />
+
           <About />
           <Services />
           <Portfolio />
           <Resume />
           <Skills />
           <Contact />
+
+          {/* Chat Section */}
           <LetsHaveAChat
             label="Want to start a project?"
             words={["Let’s", "have", "a", "chat"]}
             email="santhoshsss2362@gmail.com"
           />
+
         </main>
       </motion.div>
     </>

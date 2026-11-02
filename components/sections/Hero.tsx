@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Download, Mail } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import { TypingRoles } from "@/components/TypingRoles";
+import { LanyardCard } from "@/components/idCard";
 import "@/styles/hero.css";
 
-// Add / remove roles here – they type, delete and rotate forever in the same spot
 const ROLES = [
   "Data Analyst",
   "Data Scientist",
@@ -15,27 +15,6 @@ const ROLES = [
   "Tableau Developer",
   "Python Developer",
 ];
-
-function DribbbleIcon({ size = 17 }: { size?: number }) {
-  return (
-    <svg
-      aria-hidden="true"
-      fill="none"
-      height={size}
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.8"
-      viewBox="0 0 24 24"
-      width={size}
-    >
-      <circle cx="12" cy="12" r="9" />
-      <path d="M8.6 4.35c2.74 3.37 4.76 7.1 6.1 11.24" />
-      <path d="M18.9 8.18c-3.6.19-7.02.88-10.24 2.09" />
-      <path d="M6.38 18.03c2.75-2.55 6-4.18 9.75-4.87" />
-    </svg>
-  );
-}
 
 function GithubIcon({ size = 17 }: { size?: number }) {
   return (
@@ -65,62 +44,90 @@ function LinkedinIcon({ size = 17 }: { size?: number }) {
   );
 }
 
-function TwitterIcon({ size = 17 }: { size?: number }) {
-  return (
-    <svg
-      aria-hidden="true"
-      fill="currentColor"
-      height={size}
-      viewBox="0 0 24 24"
-      width={size}
-    >
-      <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.25l-4.9-7.38L5.6 22H2.5l7.25-8.29L2 2h6.4l4.43 6.8L18.9 2Zm-1.1 18h1.73L7.44 3.9H5.58L17.8 20Z" />
-    </svg>
-  );
-}
-
 export function Hero() {
-  const profileImageSrc = "/santhosh_profile1.png"; // Replace with your actual profile image path
+  const profileImageSrc = "/santhosh_profile1.png";
 
   return (
     <section className="relative flex min-h-[calc(100svh-6rem)] w-full items-center overflow-hidden bg-[var(--hero-section-background)] pt-10 pb-16 sm:min-h-[calc(100svh-7rem)] sm:pt-12 sm:pb-20 lg:min-h-screen lg:pt-0 lg:pb-0">
+      
       <ParticlesBackground />
-      {/* Soft purple glow */}
+
+      {/* Purple glow */}
       <div className="absolute right-0 top-0 h-[520px] w-[520px] rounded-full bg-[#8750f7]/20 blur-[120px]" />
+
+      {/* Background watermark */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center"
       >
         <motion.span
           animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+          transition={{
+            duration: 2.2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="hero-watermark origin-center select-none"
         >
           HI
         </motion.span>
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        {/* Left Content */}
+      {/* Main Hero Grid */}
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+
+        {/* LEFT CONTENT (Takes 7 columns on large screens) */}
         <motion.div
           initial={{ opacity: 0, y: 45 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative"
+          className="relative lg:col-span-7 lg:pl-[120px]"
         >
-          <h1 className="hero-title relative z-10 max-w-4xl">
-            <span className="hero-title-line hero-title-name">Santhosh Murarishetty</span>
-            <span className="hero-title-line hero-title-subline text-[var(--hero-kicker)]">
+          {/* LANYARD ID CARD */}
+          <LanyardCard
+            name="Santhosh M"
+            role="Data Analyst"
+            status="Available for projects"
+            photo="/santhosh_profile1.png"
+            ropeLength={110}
+            className="
+              absolute
+              left-[-95px]
+              top-[-110px]
+              z-87
+              hidden
+              lg:block
+            "
+          />
+
+          {/* NAME AND ROLE */}
+          <h1 className="hero-title relative z-10 w-full">
+            <span className="hero-title-line hero-title-name block">
+              Santhosh Murarishetty
+            </span>
+
+            <span className="hero-title-line hero-title-subline block text-[var(--hero-kicker)] mt-2">
               I&apos;m a{" "}
-              <TypingRoles roles={ROLES} />
+              <span className="inline-block">
+                <TypingRoles roles={ROLES} />
+              </span>
             </span>
           </h1>
 
-          <p className="relative z-10 mt-5 max-w-xl text-lg leading-8 text-[var(--hero-copy)] sm:mt-8 sm:text-xl sm:leading-9">
-            I transform raw data into meaningful insights through data analysis, interactive dashboards, and compelling visualizations using <b style={{ color: "#8750f7" }}>Excel</b>, <b style={{ color: "#8750f7" }}>Power BI</b>, <b style={{ color: "#8750f7" }}>Tableau</b>, and <b style={{ color: "#8750f7" }}>SQL</b>, helping businesses make smarter, data-driven decisions.
+          {/* DESCRIPTION */}
+          <p className="relative z-10 mt-5 max-w-xl text-lg leading-8 text-[var(--hero-copy)] sm:mt-6 sm:text-xl sm:leading-9">
+            I transform raw data into meaningful insights through data
+            analysis, interactive dashboards, and compelling visualizations
+            using{" "}
+            <b style={{ color: "#8750f7" }}>Excel</b>,{" "}
+            <b style={{ color: "#8750f7" }}>Power BI</b>,{" "}
+            <b style={{ color: "#8750f7" }}>Tableau</b>, and{" "}
+            <b style={{ color: "#8750f7" }}>SQL</b>, helping businesses
+            make smarter, data-driven decisions.
           </p>
 
-          <div className="hero-actions relative z-10 mt-7 flex flex-wrap items-center gap-4 sm:mt-12 sm:gap-5">
+          {/* ACTION BUTTONS */}
+          <div className="hero-actions relative z-10 mt-7 flex flex-wrap items-center gap-4 sm:mt-10 sm:gap-5">
             <a
               href="/Santhosh_Data_Analyst_CV.docx"
               className="download-cta group inline-flex items-center gap-3 rounded-full border border-[var(--hero-action-border)] bg-[var(--hero-action-background)] px-8 py-4 text-sm font-bold tracking-[0.12em] text-[#8750f7] shadow-[var(--hero-action-shadow)] transition-all duration-300 hover:bg-[#8750f7] hover:!text-white"
@@ -130,14 +137,26 @@ export function Hero() {
             </a>
 
             <div className="hero-social-row flex items-center gap-3">
-              <a className="hero-social" href="#" aria-label="LinkedIn" target="_blank">
+              <a
+                className="hero-social"
+                href="#"
+                aria-label="LinkedIn"
+                target="_blank"
+              >
                 <LinkedinIcon size={17} />
                 <span className="hero-tooltip">LinkedIn</span>
               </a>
-              <a className="hero-social" href="#" aria-label="GitHub" target="_blank">
+
+              <a
+                className="hero-social"
+                href="#"
+                aria-label="GitHub"
+                target="_blank"
+              >
                 <GithubIcon size={17} />
                 <span className="hero-tooltip">GitHub</span>
               </a>
+
               <a
                 className="hero-social"
                 href="mailto:santhoshsss2362@gmail.com"
@@ -150,14 +169,14 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Image */}
+        {/* RIGHT PROFILE IMAGE (Takes 5 columns on large screens, making it cleanly separated) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, rotate: 4 }}
           animate={{ opacity: 1, scale: 1, rotate: 4 }}
           transition={{ duration: 0.9 }}
-          className="flex justify-center lg:justify-end"
+          className="flex justify-center lg:col-span-5 lg:justify-end z-20"
         >
-          <div className="relative h-[360px] max-w-[330px] w-full overflow-hidden rounded-[32px] border-2 border-[var(--hero-frame)] bg-[var(--hero-card-background)] shadow-[0_30px_80px_rgba(135,80,247,0.25)] transition duration-500 hover:rotate-0 sm:h-[460px] sm:max-w-[430px]">
+          <div className="relative h-[360px] max-w-[330px] w-full overflow-hidden rounded-[32px] border-2 border-[var(--hero-frame)] bg-[var(--hero-card-background)] shadow-[0_30px_80px_rgba(135,80,247,0.25)] transition duration-500 hover:rotate-0 sm:h-[460px] sm:max-w-[400px]">
             <img
               src={profileImageSrc}
               alt="Santhosh Murarishetty"
@@ -165,6 +184,7 @@ export function Hero() {
             />
           </div>
         </motion.div>
+
       </div>
     </section>
   );
