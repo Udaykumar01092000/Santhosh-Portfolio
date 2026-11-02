@@ -65,56 +65,62 @@ type Skill = {
 };
 
 const skills: Skill[] = [
-  {
-    name: "Excel",
-    percent: "95%",
-    icon: ExcelIcon,
-  },
-  {
-    name: "Power BI",
-    percent: "95%",
-    icon: PowerBIIcon,
-  },
-  {
-    name: "Tableau",
-    percent: "95%",
-    icon: TableauIcon,
-  },
-  {
-    name: "SQL",
-    percent: "90%",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-  },
-  {
-    name: "HTML",
-    percent: "100%",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-  },
-  {
-    name: "CSS",
-    percent: "100%",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-  },
-  {
-    name: "Tailwind CSS",
-    percent: "90%",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-  },
-  {
-    name: "Bootstrap",
-    percent: "95%",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
-  },
-  {
-    name: "JavaScript",
-    percent: "65%",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-  },
-  {
-    name: "React",
-    percent: "50%",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  },
+ {
+  name: "Excel",
+  percent: "Advanced",
+  icon: ExcelIcon,
+},
+{
+  name: "Power BI",
+  percent: "Advanced",
+  icon: PowerBIIcon,
+},
+{
+  name: "Tableau",
+  percent: "Advanced",
+  icon: TableauIcon,
+},
+{
+  name: "SQL",
+  percent: "Intermediate",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+},
+
+{
+  name: "HTML",
+  percent: "Advanced",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+},
+{
+  name: "CSS",
+  percent: "Advanced",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+},
+{
+  name: "Tailwind CSS",
+  percent: "Intermediate",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+},
+{
+  name: "Bootstrap",
+  percent: "Intermediate",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+},
+{
+  name: "JavaScript",
+  percent: "Beginner",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+},
+{
+  name: "React",
+  percent: "Beginner",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+},
+{
+  name: "Next.js",
+  percent: "Beginner",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+},
 ];
 
 /** Icon with a safe fallback: if a CDN icon ever fails to load, show the initial instead of a broken image */

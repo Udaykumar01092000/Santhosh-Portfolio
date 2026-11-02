@@ -250,7 +250,7 @@ export function Contact() {
           </h2>
 
           <p className="mt-5 max-w-xl text-base leading-7 text-[var(--muted-foreground)]">
-           Have a project in mind or need help with a website, e-commerce store, web application, or mobile app? I&apos;d love to hear about your ideas and discuss how we can bring them to life.
+           Have a project in mind or need help with data analysis, interactive dashboards, business intelligence, or data visualization? I'd love to hear about your ideas and help turn your data into meaningful insights that drive smarter business decisions.
           </p>
 
           <Suspense fallback={<div className="mt-8 min-h-[400px]" />}>

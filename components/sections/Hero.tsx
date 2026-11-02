@@ -9,11 +9,17 @@ import "@/styles/hero.css";
 
 const ROLES = [
   "Data Analyst",
-  "Data Scientist",
-  "AI Engineer",
+  "Business Analyst",
   "Power BI Developer",
   "Tableau Developer",
-  "Python Developer",
+  "Excel Analyst",
+  "Data Analyst",
+  "SQL Developer",
+  "Data Storyteller",
+  "Dashboard Developer",
+  //"Data Scientist",
+  //"AI Engineer",
+  //"Python Developer",
 ];
 
 function GithubIcon({ size = 17 }: { size?: number }) {

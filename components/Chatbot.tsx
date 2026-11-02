@@ -10,7 +10,7 @@ const WELCOME_MESSAGE_ID = 1
 const WELCOME_MESSAGE = {
   id: WELCOME_MESSAGE_ID,
   sender: 'bot',
-  text: "Hi there! 👋 I'm Santhosh Murarishetty, a Data Analyyst. Have a Opportunity, project, or question? Send me a message and connect with me on WhatsApp.",
+  text: "Hi there! 👋 I'm Santhosh Murarishetty, a Data Analyst. Have a Opportunity, project, or question? Send me a message and connect with me on WhatsApp.",
 }
 
 export function Chatbot() {
