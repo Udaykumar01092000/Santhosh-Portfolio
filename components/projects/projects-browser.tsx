@@ -1,9 +1,13 @@
+
 "use client";
 
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { startTransition, useState } from "react";
 import type { Project } from "@/data/projects";
-import { ProjectCard, projectGridVariants } from "@/components/projects/project-card";
+import {
+  ProjectCard,
+  projectGridVariants,
+} from "@/components/projects/project-card";
 
 const filterPillTransition = {
   type: "spring",
@@ -17,7 +21,11 @@ type ProjectsBrowserProps = {
 };
 
 export function ProjectsBrowser({ projects }: ProjectsBrowserProps) {
-  const filters = ["All", ...new Set(projects.map((project) => project.category))];
+  const filters = [
+    "All",
+    ...new Set(projects.map((project) => project.category)),
+  ];
+
   const [activeFilter, setActiveFilter] = useState(filters[0] ?? "All");
 
   const visibleProjects =
@@ -38,20 +46,18 @@ export function ProjectsBrowser({ projects }: ProjectsBrowserProps) {
                   key={filter}
                   type="button"
                   onClick={() =>
-                    startTransition(() => {
-                      setActiveFilter(filter);
-                    })
+                    startTransition(() => setActiveFilter(filter))
                   }
                   suppressHydrationWarning
                   className="relative min-w-0 cursor-pointer overflow-hidden rounded-[16px] px-4 py-3 text-xs font-bold uppercase tracking-[0.14em] sm:rounded-full sm:px-5"
                 >
-                  {isActive ? (
+                  {isActive && (
                     <motion.span
                       layoutId="projects-page-filter-pill"
                       className="absolute inset-0 rounded-full bg-gradient-to-r from-[#8750f7] to-[#2a1454]"
                       transition={filterPillTransition}
                     />
-                  ) : null}
+                  )}
 
                   <span
                     className={`relative z-10 block whitespace-nowrap transition ${

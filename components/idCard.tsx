@@ -58,6 +58,31 @@ export function LanyardCard({
     let raf = 0;
     let running = false;
     let lastFrame = 0;
+    let lastScrollTime = 0;
+
+    // Track page and nested scroll containers.
+    const scrollPositions = new Map<EventTarget, number>();
+
+    const getScrollPosition = (target: EventTarget): number => {
+      if (target === document) {
+        return document.scrollingElement?.scrollTop ?? window.scrollY;
+      }
+
+      if (target instanceof HTMLElement) {
+        return target.scrollTop;
+      }
+
+      return 0;
+    };
+
+    scrollPositions.set(document, getScrollPosition(document));
+
+    let parent = root.parentElement;
+
+    while (parent) {
+      scrollPositions.set(parent, parent.scrollTop);
+      parent = parent.parentElement;
+    }
 
     const apply = () => {
       swing.style.transform = `rotate(${theta}rad)`;
@@ -90,6 +115,8 @@ export function LanyardCard({
           theta += omega * h;
         }
 
+        theta = clamp(theta, -MAX_ANGLE, MAX_ANGLE);
+
         if (
           Math.abs(theta) < 0.0004 &&
           Math.abs(omega) < 0.002
@@ -114,6 +141,51 @@ export function LanyardCard({
       raf = requestAnimationFrame(tick);
     };
 
+    // Scroll-controlled swing.
+    const onScroll = (event: Event) => {
+      if (reduceMotion || dragging) return;
+
+      const eventTarget = event.target;
+
+      const target: EventTarget =
+        eventTarget === document ||
+        eventTarget === document.documentElement ||
+        eventTarget === document.body
+          ? document
+          : eventTarget instanceof Element
+            ? eventTarget
+            : document;
+
+      const currentPosition = getScrollPosition(target);
+      const previousPosition = scrollPositions.get(target);
+
+      if (previousPosition === undefined) {
+        scrollPositions.set(target, currentPosition);
+        return;
+      }
+
+      const deltaY = currentPosition - previousPosition;
+
+      scrollPositions.set(target, currentPosition);
+
+      if (Math.abs(deltaY) < 0.5) return;
+
+      const now = performance.now();
+      const timeSinceScroll = now - lastScrollTime;
+
+      lastScrollTime = now;
+
+      const scrollForce = clamp(deltaY * 0.004, -4, 4);
+
+      omega = clamp(omega + scrollForce, -14, 14);
+
+      if (timeSinceScroll > 150) {
+        omega = clamp(omega + scrollForce * 0.15, -14, 14);
+      }
+
+      start();
+    };
+
     const onDown = (event: PointerEvent) => {
       event.preventDefault();
 
@@ -126,8 +198,6 @@ export function LanyardCard({
       lastTime = performance.now();
       dragOmega = 0;
       omega = 0;
-
-      start();
     };
 
     const onMove = (event: PointerEvent) => {
@@ -151,6 +221,8 @@ export function LanyardCard({
       lastAngle = next;
       lastTime = now;
       theta = next;
+
+      apply();
     };
 
     const onUp = () => {
@@ -170,6 +242,11 @@ export function LanyardCard({
 
     if (!reduceMotion) start();
 
+    document.addEventListener("scroll", onScroll, {
+      passive: true,
+      capture: true,
+    });
+
     card.addEventListener("pointerdown", onDown);
     card.addEventListener("pointermove", onMove);
     card.addEventListener("pointerup", onUp);
@@ -177,6 +254,8 @@ export function LanyardCard({
 
     return () => {
       cancelAnimationFrame(raf);
+
+      document.removeEventListener("scroll", onScroll, true);
 
       card.removeEventListener("pointerdown", onDown);
       card.removeEventListener("pointermove", onMove);
@@ -242,7 +321,6 @@ export function LanyardCard({
           }}
         >
           <div className="relative h-full w-full overflow-hidden rounded-[18px] bg-white ring-1 ring-white/20">
-
             {/* Purple header */}
             <div className="absolute inset-x-0 top-0 h-[34%] bg-gradient-to-br from-[#963cff] via-[#8750f7] to-[#2a1454]" />
 
@@ -251,7 +329,6 @@ export function LanyardCard({
 
             {/* Card content */}
             <div className="relative flex h-full flex-col items-center pt-12">
-
               {/* Profile image */}
               <div className="flex h-[82px] w-[82px] items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-[#b79bff] to-[#8750f7] text-2xl font-black text-white ring-4 ring-white">
                 {photo ? (

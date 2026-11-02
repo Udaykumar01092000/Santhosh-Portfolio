@@ -91,20 +91,26 @@ export function Hero() {
         >
           {/* LANYARD ID CARD */}
           <LanyardCard
-            name="Santhosh M"
-            role="Data Analyst"
-            status="Available for projects"
-            photo="/santhosh_profile1.png"
-            ropeLength={110}
-            className="
-              absolute
-              left-[-95px]
-              top-[-110px]
-              z-87
-              hidden
-              lg:block
-            "
-          />
+  name="Santhosh M"
+  role="Data Analyst"
+  status="Available for projects"
+  photo="/santhosh_profile1.png"
+  ropeLength={110}
+  className="
+  absolute
+  left-[calc(100%-115px)]
+  top-[-90px]
+  z-[30]
+  block
+  origin-top-left
+  scale-[0.60]
+  sm:left-[calc(100%-130px)]
+  sm:scale-[0.8]
+  lg:left-[-95px]
+  lg:top-[-110px]
+  lg:scale-100
+"
+/>
 
           {/* NAME AND ROLE */}
           <h1 className="hero-title relative z-10 w-full">

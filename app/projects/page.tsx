@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -17,6 +18,7 @@ export default function ProjectsPage() {
     <main className="min-h-screen bg-[var(--page-background)] text-[var(--foreground)]">
       <ThemeToggle />
       <ScrollToTopButton />
+
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_top,_rgba(129,76,236,0.28),_transparent_58%)]" />
 
       <section className="relative overflow-hidden pb-24 pt-10 sm:pb-28 sm:pt-14 lg:pb-32 lg:pt-16">
@@ -47,7 +49,9 @@ export default function ProjectsPage() {
             </h1>
 
             <p className="mt-6 text-lg leading-8 text-[var(--muted-foreground)]">
-              Browse the full collection in one place and switch between categories with the same visual language used across the portfolio.
+              Browse the full collection in one place and switch between
+              categories with the same visual language used across the
+              portfolio.
             </p>
           </div>
 
