@@ -46,126 +46,138 @@ export type Project = {
 
 export const projects: Project[] = [
    {
-    id: "uhq-adda-admin",
-    title: "UHQ Adda Admin Panel",
-    category: "React",
+    id: "powerbi-sales-analysis",
+    title: "Sales Analysis Report",
+    category: "Power BI",
     year: "2026",
     images: ["/projects/PowerBI_dashboard.png"],
-    client: "Quiz App Management System",
-    duration: "1-2 Weeks",
-    role: "React & Next.js Frontend Developer",
+    client: "Sales Analytics Project",
+    duration: "1 Week",
+    role: "Data Analyst & Power BI Developer",
     location: "Remote",
     summary:
-      "A React and Next.js admin dashboard built for managing a quiz application with user management, question handling, subscriptions and payment tracking features.",
+      "An interactive Power BI sales report covering 12.64M in total sales and 51K orders, with slicers, region-wise sales and profit tables, and KPI cards for quick decision-making.",
     summaryHighlights: [
-      "React and Next.js admin dashboard",
-      "Question and category management",
-      "Subscription and Razorpay tracking",
+      "12.64M total sales and 51K orders tracked",
+      "Slicers for sales range, segment and year",
+      "Category, sub-category and region-wise analysis",
     ],
+
     intro:
-      "UHQ Adda Admin Panel was created as a React and Next.js dashboard for managing a React Native quiz application where admins can control users, quiz questions, subscriptions and application content from a centralized system.",
+      "The Sales Analysis Report is a Power BI dashboard that lets business users explore sales and profit across categories, sub-categories and regions. Filters at the top let viewers narrow the data by sales range, customer segment and year, while KPI cards keep the headline numbers visible at all times.",
+
     challenge:
-      "The platform required a structured admin experience capable of handling dynamic quiz data, CSV uploads, subscriptions, category management and payment-related tracking while keeping the dashboard simple and responsive.",
+      "Sales and profit data was spread across many regions, categories and years, which made it slow to spot top-performing products or weak markets. The report needed to stay simple to use while still letting viewers drill into detail.",
+
+    challengeHighlights: [
+      "sales and profit spread across many regions",
+      "simple filtering with deep detail",
+    ],
+
     solution:
-      "I developed the complete frontend admin panel using React and Next.js by integrating backend APIs provided by another developer and building responsive dashboard modules for authentication, quiz management, subscriptions and user administration.",
+      "I cleaned and modelled the sales data, then built a single-page report with slicers for sales range, segment and year. A heat-mapped table ranks sub-categories by sales, a matrix breaks sales and profit down by region with trend arrows, and KPI cards show total orders, shipping cost, total sales and average profit.",
+
     results: [
-      "Implemented secure admin signup and login flow.",
-      "Built quiz question management with CSV upload and manual form submissions.",
-      "Added question activation, deactivation and soft delete functionality.",
-      "Integrated subscription package management with Razorpay payment tracking.",
-      "Created category management and category assignment workflows.",
-      "Developed user and subscription tracking interfaces for admins.",
-      "Integrated APIs using Axios for dynamic dashboard operations.",
-      "Responsive dashboard optimized for desktop and tablet usage.",
-      "Deployed and hosted the application on Netlify.",
+      "Reported 12.64M in total sales, 51.313K total orders and 1.35M in shipping cost on one page.",
+
+      "Ranked sub-categories with colour-scale formatting, with Phones (1,706.82K), Copiers (1,509.44K) and Chairs (1,501.68K) leading sales.",
+
+      "Built a region-wise matrix comparing sales and profit for each sub-category, with trend arrows to flag growth.",
+
+      "Added slicers for sales range, customer segment and year so viewers can filter the whole report instantly.",
+
+      "Created KPI cards for total sales and average profit for quick performance checks.",
+
+      "Designed a clear, high-contrast layout with a back-navigation button for smooth movement between report pages.",
     ],
+
     stack: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React JS",
-      "Next.js",
-      "Material UI",
-      "Bootstrap",
-      "Axios/API Integration",
-      "Netlify",
-      "Responsive Design"
+      "Power BI",
+      "DAX",
+      "Power Query",
+      "Data Modelling",
+      "Slicers & Filters",
+      "Conditional Formatting",
+      "KPI Cards",
+      "Dashboard Design",
     ],
+
     links: {
-      demo: "https://uhqadda.netlify.app/",
       contact: "/#contact",
     },
-    // TEST SAMPLE – replace the url with your own Power BI / Excel link, or delete this block
     dashboard: {
       title: "Live Dashboard",
-      url: "https://app.powerbi.com/view?r=eyJrIjoiYzcyYTg1ZDYtZjI2Zi00NWNhLWJhYzUtZTM1NjliZjlkOGExIiwidCI6ImIwMzNhNWMyLTFhNGUtNDIwMS1iNGZiLWIwZDkzYjlhMGIxOSIsImMiOjl9&utm_source=chatgpt.com",
+      url: "https://public.tableau.com/views/SalesPerformanceDashboard_16888888888888/SalesPerformanceDashboard?:language=en-US&:display_count=n&:origin=viz_share_link",
       aspectRatio: "16/9",
     },
   },
+
   {
-  id: "vaartha-newsroom",
-  title: "Vaartha Digital",
-  category: "WordPress",
-  year: "2026",
-  images: ["/projects/Tableau_dashboard.png"],
-  client: "Vaartha Publications",
-  duration: "Ongoing",
-  role: "WordPress & PHP Developer",
-  location: "Hyderabad",
-  summary:
-    "Developed custom Sage-based WordPress platforms, custom plugins and a React Native mobile application integrated with WordPress APIs for Vaartha digital news platforms.",
-  summaryHighlights: [
-    "custom Sage-based WordPress platforms",
-    "custom plugins",
-    "React Native mobile application",
-    "WordPress APIs",
-  ],
-    
-  intro:
-    "A large-scale digital news platform where I contributed to frontend development, custom WordPress functionality, plugin development, mobile application integration and day-to-day platform maintenance for both Telugu and Hindi news portals.",
+    id: "tableau-sales-dashboard",
+    title: "Sales Performance Dashboard",
+    category: "Tableau",
+    year: "2026",
+    images: ["/projects/Tableau_dashboard.png"],
+    client: "Sales Analytics Project",
+    duration: "1 Week",
+    role: "Data Analyst & Tableau Developer",
+    location: "Remote",
+    summary:
+      "An interactive Tableau sales dashboard that breaks down 2,327K in total sales by region, sub-category, category and geography, with sales and profit compared side by side.",
+    summaryHighlights: [
+      "2,327K total sales analysed by region",
+      "Sub-category, category and map views",
+      "Dual-axis sales vs profit comparison",
+    ],
 
-  challenge:
-    "The platform required scalable and responsive news websites, smooth article publishing workflows, custom interactive features for readers and reliable API-driven content delivery for mobile users while handling continuous daily traffic and content updates.",
+    intro:
+      "This Tableau dashboard gives business users a single place to see how sales are distributed across regions, product sub-categories and locations. It combines doughnut, pie, bar, symbol map, dual-axis and stacked column charts in one dark-themed view that is easy to scan.",
 
-  challengeHighlights: [
-    "scalable and responsive news websites",
-    "API-driven content delivery"
-  ],
+    challenge:
+      "Sales data was spread across many dimensions, which made it hard to see which regions, categories and products were driving revenue and which were lagging on profit. The dashboard needed to answer those questions at a glance without overwhelming the viewer.",
 
-  solution:
-    "I developed custom Sage WordPress themes for vaartha.com and hindi.vaartha.com, created custom plugins including an article voting system with shortcode widget integration, monitored platform performance, supported editorial workflows and built a React Native mobile application connected through WordPress REST APIs for dynamic content delivery.",
+    challengeHighlights: [
+      "sales spread across many dimensions",
+      "clear view of revenue and profit drivers",
+    ],
 
-  results: [
-    "Built and maintained custom Sage-based WordPress themes for Vaartha digital platforms.",
-    
-    "Developed custom WordPress plugins including an article voting system with vote percentage tracking and shortcode widget integration.",
-    
-    "Integrated WordPress REST APIs with a React Native mobile application for news readers.",
-    
-    "Improved publishing workflow support for Hindi content writers and monitored smooth article publishing operations.",
-    
-    "Maintained platform stability and monitored website performance for continuous news delivery.",
-    
-    "Created responsive and scalable frontend structures tailored for digital news consumption.",
-  ],
+    solution:
+      "I cleaned and modelled the sales data, then built a set of linked Tableau charts on one dashboard. Each chart answers a specific question: regional share (doughnut and pie), sub-category ranking (bar), geographic spread (symbol map), sales against profit (dual axis) and category mix by region (stacked column). Parameters and calculated fields support extra views such as YTD/MTD/QTD, YoY %, and sales, profit and cost comparisons.",
 
-  stack: [
-    "WordPress",
-    "Sage",
-    "PHP",
-    "REST API",
-    "HTML",
-    "CSS",
-    "MySQL",
-    "Tailwind CSS"
-  ],
+    results: [
+      "Showed total sales of 2,327K split across West (740K), East (692K), Central (503K) and South (392K).",
 
-  links: {
-    demo: "https://vaartha.com/",
-    app: "https://play.google.com/store/apps/details?id=com.mycompany.vaartha&pcampaignid=web_share",
-    contact: "/#contact",
-  },
-  dashboard: "https://365moth-my.sharepoint.com/personal/website_myonlinetraininghub_com/_layouts/15/Doc.aspx?sourcedoc={a6fba8f0-8fec-4e5c-ad5d-d11c7ee7c41f}&action=embedview&AllowTyping=True&Item=Dashboard&wdHideGridlines=True&wdInConfigurator=True&wdAllowInteractivity=True&wdHideSheetTabs=True",
+      "Ranked 17 product sub-categories, with Chairs (336K), Phones (332K) and Storage (225K) leading sales.",
+
+      "Built a dual-axis chart to compare sales and profit by sub-category and spot low-margin products.",
+
+      "Created a symbol map that highlights high-sales locations across the US, with tooltips such as Texas at $170.19K.",
+
+      "Added a stacked column chart showing Furniture, Office Supplies and Technology sales by region.",
+
+      "Used parameters and calculated fields for dynamic sales, profit and cost views.",
+
+      "Designed a dark, high-contrast layout with consistent colours so the key numbers stand out.",
+    ],
+
+    stack: [
+      "Tableau",
+      "Calculated Fields",
+      "Parameters",
+      "Dual Axis Charts",
+      "Symbol Maps",
+      "Data Cleaning",
+      "Dashboard Design",
+    ],
+
+    links: {
+      contact: "/#contact",
+    },
+    dashboard: {
+      title: "Live Dashboard",
+      url: "https://public.tableau.com/views/SalesPerformanceDashboard_16888888888888/SalesPerformanceDashboard?:language=en-US&:display_count=n&:origin=viz_share_link",
+      aspectRatio: "16/9",
+    },
   },
   // {
   //   id: "eleven-cricket",

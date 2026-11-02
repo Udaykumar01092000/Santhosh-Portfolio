@@ -95,17 +95,18 @@ export default function LetsHaveAChat({
             href={`mailto:${email}`}
             className="
               group mt-3 flex items-center gap-3 self-end
-              text-lg font-medium text-white
+              text-lg font-semibold !text-[#E9DDFF]
+              transition-colors duration-300 hover:!text-white
               md:mt-5 md:gap-[18px] md:text-[clamp(1.25rem,1.8vw,2.25rem)]
             "
           >
-            <span>{email}</span>
+            <span className="!text-inherit">{email}</span>
             <span
               className="
                 flex h-9 w-9 shrink-0 items-center justify-center
-                rounded-full border border-white
+                rounded-full border border-[#E9DDFF] !text-[#E9DDFF]
                 transition-colors duration-300
-                group-hover:bg-white group-hover:text-black
+                group-hover:border-white group-hover:bg-white group-hover:!text-black
                 md:h-[clamp(2.5rem,2.5vw,3rem)] md:w-[clamp(2.5rem,2.5vw,3rem)]
               "
             >

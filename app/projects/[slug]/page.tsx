@@ -178,7 +178,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <ProjectActionButton
                     href="/#contact"
                   >
-                    ABCDEFGHIJKL
+                    Contact Me
                   </ProjectActionButton>
                 </div>
               </div>
